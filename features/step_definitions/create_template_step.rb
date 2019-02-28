@@ -33,6 +33,15 @@ When(/^I post a template with multiple attributes$/) do
   @response = post_data :template, @template
 end
 
+When(/^I post a template with an empty array of attributes$/) do
+  @template = {
+    label: "My template",
+    attrs: [],
+  }
+
+  @response = post_data :template, @template
+end
+
 Then(/^I should get a template created$/) do
   @response_body = parse_json @response.body
   assert same_json?(@template, @response_body[:template])
