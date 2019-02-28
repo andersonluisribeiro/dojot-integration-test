@@ -36,6 +36,7 @@ group :development, :test do
   gem 'site_prism'
   gem 'require_all'
   gem 'rest-client'
+  gem 'cucumber-rails', require: false
 end
 
 group :development do
