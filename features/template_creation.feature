@@ -1,4 +1,3 @@
-# feature/hello_cucumber.feature
 Feature: Template creation
   As a rest client
   I want to create a template
@@ -18,3 +17,6 @@ Feature: Template creation
     When I post a template with an empty array of attributes
     Then I should get a template created
     And the status code should be 200
+
+  Scenario: Creating a template by gui
+    Given I access login page

@@ -1,3 +1,7 @@
+Given(/^I access login page$/) do
+  visit "/"
+end
+
 When(/^I post a simple template$/) do
   @template = {
     label: "My template",

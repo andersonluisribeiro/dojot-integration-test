@@ -6,6 +6,8 @@
 
 require "cucumber/rails"
 require_relative "../../test/test_helper"
+require "capybara/cucumber"
+require "capybara/webkit"
 
 # Capybara defaults to CSS3 selectors rather than XPath.
 # If you'd prefer to use XPath, just uncomment this line and adjust any
@@ -28,6 +30,23 @@ require_relative "../../test/test_helper"
 # recommended as it will mask a lot of errors for you!
 #
 ActionController::Base.allow_rescue = false
+
+Capybara.configure do |config|
+  #config.run_server = false
+  config.default_driver = :webkit
+  config.javascript_driver = :webkit
+  config.app_host = "http://192.168.67.117:8000/"
+end
+
+Capybara::Webkit.configure do |config|
+  #config.debug = true
+  config.raise_javascript_errors = true
+  config.allow_unknown_urls
+  config.ignore_ssl_errors
+  config.skip_image_loading
+end
+
+World(Capybara)
 
 # Remove/comment out the lines below if your app doesn't have a database.
 # For some databases (like MongoDB and CouchDB) you may need to use :truncation instead.

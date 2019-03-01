@@ -33,6 +33,7 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'selenium-webdriver'
   gem 'capybara'
+  gem "capybara-webkit"
   gem 'site_prism'
   gem 'require_all'
   gem 'rest-client'
