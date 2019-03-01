@@ -35,12 +35,12 @@ Capybara.configure do |config|
   #config.run_server = false
   config.default_driver = :webkit
   config.javascript_driver = :webkit
-  config.app_host = "http://192.168.67.117:8000/"
+  config.app_host = "http://10.202.21.64:8000/"
 end
 
 Capybara::Webkit.configure do |config|
   #config.debug = true
-  config.raise_javascript_errors = true
+  config.raise_javascript_errors = false
   config.allow_unknown_urls
   config.ignore_ssl_errors
   config.skip_image_loading
@@ -74,7 +74,7 @@ World(Capybara)
 # Possible values are :truncation and :transaction
 # The :transaction strategy is faster, but might give you threading problems.
 # See https://github.com/cucumber/cucumber-rails/blob/master/features/choose_javascript_database_strategy.feature
-# Cucumber::Rails::Database.javascript_strategy = :truncation
+Cucumber::Rails::Database.javascript_strategy = :truncation
 
 # def post_data(resource, params)
 #   return RestClient.post "http://192.168.67.117:8000/#{resource.to_s}", params.to_json, {content_type: :json, Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJGVm1OUjQ5djBmVjd4S0huVWRHNlhFZkNRTVFxMGt3VSIsImlhdCI6MTU1MTI2NzM1OCwiZXhwIjoxNTUxMjY3Nzc4LCJwcm9maWxlIjoiYWRtaW4iLCJncm91cHMiOlsxXSwidXNlcmlkIjoxLCJqdGkiOiIyMGM2MTAyNGEzMDAzYWMwZTRmOGQxZTE1M2Q4OWRhNCIsInNlcnZpY2UiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.ZVXV7LDOzWgwfko7QRNZy4YOikUMFs_hVIkD3_zFKRA"}

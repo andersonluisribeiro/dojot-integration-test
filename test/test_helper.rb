@@ -13,14 +13,14 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   def post_data(resource, params)
-    return RestClient.post "http://192.168.67.117:8000/#{resource.to_s}", params.to_json, {content_type: :json, Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJGVm1OUjQ5djBmVjd4S0huVWRHNlhFZkNRTVFxMGt3VSIsImlhdCI6MTU1MTI2NzM1OCwiZXhwIjoxNTUxMjY3Nzc4LCJwcm9maWxlIjoiYWRtaW4iLCJncm91cHMiOlsxXSwidXNlcmlkIjoxLCJqdGkiOiIyMGM2MTAyNGEzMDAzYWMwZTRmOGQxZTE1M2Q4OWRhNCIsInNlcnZpY2UiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.ZVXV7LDOzWgwfko7QRNZy4YOikUMFs_hVIkD3_zFKRA"}
+    return RestClient.post "http://10.202.21.64:8000/#{resource.to_s}", params.to_json, {content_type: :json, Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJJUHRqcE9EdTlveENnV2pwdkFveHNJenZwcE1mRUFMbiIsImlhdCI6MTU1MTQ0MDMzNSwiZXhwIjoxNTUxNDQwNzU1LCJwcm9maWxlIjoiYWRtaW4iLCJncm91cHMiOlsxXSwidXNlcmlkIjoxLCJqdGkiOiI0NGM0OWQ5NmRkYjYzNmY4MTc4MDAzZDJkYTg0OGE3ZiIsInNlcnZpY2UiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.wqbMcl_C1IncwmYhxb8RpnPAKePr9BV_on2NOS8zj8Y"}
   end
 
   def same_json?(sent, result, root = nil)
     sent.keys.each do |key|
       if sent[key].is_a?(Array)
         sent[key].each_with_index do |item, index|
-          same_json? item, result[key][index]
+          same_json? item, result[key][index], nil
         end
       else
         return false unless result[key].eql? sent[key]

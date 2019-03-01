@@ -18,5 +18,12 @@ Feature: Template creation
     Then I should get a template created
     And the status code should be 200
 
-  Scenario: Creating a template by gui
-    Given I access login page
+  Scenario: Creating a template with one metadata
+    When I post a template with one metadata
+    Then I should get a template created
+    And the status code should be 200
+
+  Scenario: Creating a template with multiple metadata
+    When I post a template with multiple metadata
+    Then I should get a template created
+    And the status code should be 200  
