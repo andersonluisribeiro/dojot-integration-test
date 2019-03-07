@@ -1,7 +1,7 @@
-Feature: Data import
+Feature: Template import
   As a rest client
-  I want to import data
-  So that I can reuse my data
+  I want to import templates
+  So that I can reuse them
 
   Scenario: Importing a template with one attribute
     When I import a template with one attribute

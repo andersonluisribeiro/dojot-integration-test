@@ -13,7 +13,13 @@ class ActiveSupport::TestCase
   # fixtures :all
 
   def post_data(resource, params)
-    return RestClient.post "http://10.202.21.64:8000/#{resource.to_s}", params.to_json, {content_type: :json, Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiIzcDZtcWJZTzZZVHlNTEp2V3FkQWtZYlgzdjNnNTVTUyIsImlhdCI6MTU1MTQ2NDkyNiwiZXhwIjoxNTUxNDY1MzQ2LCJwcm9maWxlIjoiYWRtaW4iLCJncm91cHMiOlsxXSwidXNlcmlkIjoxLCJqdGkiOiJlOWU2MGYwZmI1MDRlZmZiM2E2ZThiZTQ4ZWI3Zjg4YiIsInNlcnZpY2UiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.-TR_j-tebNGheqlSs-oqBhVa4v9FAH2KTefiv4CdT2M"}
+    # puts params.to_json
+    begin
+      res =  RestClient.post "http://10.202.21.64:8000/#{resource.to_s}", params.to_json, {content_type: :json, Authorization: "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ0NjJ0eDJIVTdjRUEzTzFFVEhVMTcwbHdyVVo4cEFSeSIsImlhdCI6MTU1MTk2NDExMCwiZXhwIjoxNTUxOTY0NTMwLCJwcm9maWxlIjoiYWRtaW4iLCJncm91cHMiOlsxXSwidXNlcmlkIjoxLCJqdGkiOiIxMDZkOTAzZmI4ZmEwNTYwYjc0ZmYzY2QxYTA5N2I0NyIsInNlcnZpY2UiOiJhZG1pbiIsInVzZXJuYW1lIjoiYWRtaW4ifQ.AdQXWeM-J7kl4GlNdK7nG1Plm4NbJ51Wkbx5_IwElXE"}
+    rescue RestClient::ExceptionWithResponse => e
+      return e.response
+    end  
+    return res
   end
 
   def same_json?(sent, result, root = nil)
