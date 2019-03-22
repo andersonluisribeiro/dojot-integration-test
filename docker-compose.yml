@@ -12,6 +12,6 @@ services:
     volumes:
       - .:/dojot-integration-test
     ports:
-      - "3000:3000"
+      - "3003:3000"
     depends_on:
       - db
