@@ -1,6 +1,6 @@
 When(/^I import a template with one attribute$/) do
     @import = {
-        templates: [ 
+        templates: [
             {
                 id:1,
                 label:"medidor de temperatura",
@@ -12,19 +12,19 @@ When(/^I import a template with one attribute$/) do
                         type:"dynamic",
                         value_type:"float"
                     }
-                ]    
+                ]
             }
         ],
         devices: [],
-        flows: []    
+        flows: []
     }
-  
+
     @response = post_data :import, @import
 end
 
 When(/^I import two templates with one attribute each one$/) do
     @import = {
-        templates: [ 
+        templates: [
             {
                 id:1,
                 label:"medidor de temperatura",
@@ -36,32 +36,32 @@ When(/^I import two templates with one attribute each one$/) do
                         type:"dynamic",
                         value_type:"float"
                     }
-                ]    
+                ]
             },
             {
-                id:1,
+                id:2,
                 label:"medidor de pressão",
                 attrs: [
                     {
-                        id:1,
+                        id:2,
                         label:"temperatura",
                         template_id:"1",
                         type:"dynamic",
                         value_type:"float"
                     }
-                ]    
+                ]
             }
         ],
         devices: [],
-        flows: []    
+        flows: []
     }
-  
+
     @response = post_data :import, @import
 end
 
 When(/^I import two templates with two attributes each one$/) do
     @import = {
-        templates: [ 
+        templates: [
             {
                 id:1,
                 label:"medidor de temperatura",
@@ -80,7 +80,7 @@ When(/^I import two templates with two attributes each one$/) do
                         type:"dynamic",
                         value_type:"float"
                     }
-                ]    
+                ]
             },
             {
                 id:2,
@@ -100,11 +100,11 @@ When(/^I import two templates with two attributes each one$/) do
                         type:"dynamic",
                         value_type:"float"
                     }
-                ]    
+                ]
             }
         ],
         devices: [],
-        flows: []    
+        flows: []
     }
 
     @response = post_data :import, @import

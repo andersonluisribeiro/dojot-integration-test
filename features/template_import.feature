@@ -5,15 +5,12 @@ Feature: Template import
 
   Scenario: Importing a template with one attribute
     When I import a template with one attribute
-    Then I should get imported template
-    And the status code should be 200
+    And the status code should be 201
 
   Scenario: Importing two templates with one attribute each one
     When I import two templates with one attribute each one
-    Then I should get imported template
-    And the status code should be 200
+    And the status code should be 201
 
   Scenario: Importing two templates with two attributes each one
     When I import two templates with two attributes each one
-    Then I should get imported template
-    And the status code should be 200     
+    And the status code should be 201
